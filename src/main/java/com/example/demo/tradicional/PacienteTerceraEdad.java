@@ -11,6 +11,7 @@ public class PacienteTerceraEdad extends Paciente {
 	public void setCodigoIESS(String codigoIESS) {
 		this.codigoIESS = codigoIESS;
 	}
-	
+	 
+	//hola
 
 }
