@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>uce.gob.ec.avanzada</groupId>
-	<artifactId>proyecto_u1_dc</artifactId>
+	<artifactId>proyecto_u1_je</artifactId>
 	<version>1.0.0 -SNAPSHOT</version>
-	<name>proyecto_u1_dc</name>
+	<name>proyecto_u1_je</name>
 	<description>Proyecto_unidad_uno</description>
 	<properties>
 		<java.version>11</java.version>

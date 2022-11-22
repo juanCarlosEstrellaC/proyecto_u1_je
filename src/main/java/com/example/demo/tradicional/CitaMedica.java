@@ -65,39 +65,30 @@ public class CitaMedica {
 	public String getNumero() {
 		return numero;
 	}
-
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
-
 	public LocalDateTime getFechaCita() {
 		return fechaCita;
 	}
-
 	public void setFechaCita(LocalDateTime fechaCita) {
 		this.fechaCita = fechaCita;
 	}
-
 	public LocalDateTime getFechaAgenda() {
 		return fechaAgenda;
 	}
-
 	public void setFechaAgenda(LocalDateTime fechaAgenda) {
 		this.fechaAgenda = fechaAgenda;
 	}
-
 	public Medico getMedico() {
 		return medico;
 	}
-
 	public void setMedico(Medico medico) {
 		this.medico = medico;
 	}
-
 	public Paciente getPaciente() {
 		return paciente;
 	}
-
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
