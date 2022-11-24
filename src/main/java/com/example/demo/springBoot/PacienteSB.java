@@ -2,41 +2,38 @@ package com.example.demo.springBoot;
 
 public class PacienteSB {
 	
-
-	public String nombre;
-	public String cedula;
-	public String tipo; 	//Sirve para saber si es paciente niño o 3ra edad
+	private String nombre;
+	private String cedula;
+	private String tipo; 	
 	
 	protected Integer calcularDescuento() {
 		System.out.println("sin descuento");
 		return 0;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Paciente [nombre=" + nombre + ", cedula=" + cedula + "]";
+		return "PacienteSB [nombre=" + nombre + ", cedula=" + cedula + ", tipo=" + tipo + "]";
 	}
-	
-		protected String getTipo() {
+
+
+		public String getTipo() {
 			return tipo;
 		}
-		protected void setTipo(String tipo) {
+		public void setTipo(String tipo) {
 			this.tipo = tipo;
 		}
-		protected String getNombre() {
+		public String getNombre() {
 			return nombre;
 		}
-		protected void setNombre(String nombre) {
+		public void setNombre(String nombre) {
 			this.nombre = nombre;
 		}
-		protected String getCedula() {
+		public String getCedula() {
 			return cedula;
 		}
-		protected void setCedula(String cedula) {
+		public void setCedula(String cedula) {
 		this.cedula = cedula;
 	}
-	
-
-		
 
 }

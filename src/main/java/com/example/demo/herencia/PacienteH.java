@@ -17,23 +17,23 @@ public class PacienteH {
 		return "Paciente [nombre=" + nombre + ", cedula=" + cedula + "]";
 	}
 	
-		protected String getTipo() {
+		public String getTipo() {
 			return tipo;
 		}
-		protected void setTipo(String tipo) {
+		public void setTipo(String tipo) {
 			this.tipo = tipo;
 		}
-		protected String getNombre() {
+		public String getNombre() {
 			return nombre;
 		}
-		protected void setNombre(String nombre) {
+		public void setNombre(String nombre) {
 			this.nombre = nombre;
 		}
-		protected String getCedula() {
+		public String getCedula() {
 			return cedula;
 		}
-		protected void setCedula(String cedula) {
-		this.cedula = cedula;
+		public void setCedula(String cedula) {
+			this.cedula = cedula;
 	}
 	
 

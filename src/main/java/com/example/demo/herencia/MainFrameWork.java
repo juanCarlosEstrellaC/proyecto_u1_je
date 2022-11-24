@@ -6,10 +6,13 @@ public class MainFrameWork {
 
 	public static void main(String[] args) {
 		
-//		PacienteH pacienteTE = new PacienteTerceraEdadH();
-//		pacienteTE.setCedula("1234567");
-//		pacienteTE.setNombre("Daniel");
-//		pacienteTE.setTipo("TE");
+		PacienteH pacienteTE = new PacienteTerceraEdadH();
+		pacienteTE.setCedula("1234567");
+		pacienteTE.setNombre("Daniel");
+		pacienteTE.setTipo("TE");
+		
+		PacienteTerceraEdadH p = new PacienteTerceraEdadH();
+
 		
 		PacienteH pacienteC = new PacienteCancerH();
 		pacienteC.setCedula("1234567");

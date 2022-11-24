@@ -26,6 +26,7 @@ public class CitaMedicaH {
 		System.out.println("Valor" +valorDescuento);
 		
 		this.medico = mh;
+		this.paciente = ph;
 		this.guardarCita(this);
 		
 	}
