@@ -1,10 +1,13 @@
 package com.example.demo;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.example.demo.banco.modelo.CuentaBancaria;
+import com.example.demo.banco.service.ICuentaBancariaService;
 import com.example.demo.springBoot.CitaMedicaSB;
 import com.example.demo.springBoot.MedicoSB;
 import com.example.demo.springBoot.PacienteCancerSB;
@@ -15,16 +18,7 @@ import com.example.demo.springBoot.PacienteTerceraEdadSB;
 public class ProyectoU1DcApplication implements CommandLineRunner {
 
 	@Autowired
-	private PacienteTerceraEdadSB pacienteTE;
-	
-	@Autowired
-	private PacienteCancerSB cancerSB;
-	
-	@Autowired
-	private CitaMedicaSB citaMedicaSB;
-	
-	@Autowired
-	private MedicoSB medicoSB;
+	private ICuentaBancariaService bancariaService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1DcApplication.class, args);
@@ -32,24 +26,19 @@ public class ProyectoU1DcApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("Spring Boot");
-		System.out.println(pacienteTE);
+		CuentaBancaria cuenta1 = new CuentaBancaria();
+		cuenta1.setNumero("0001");
+		cuenta1.setTipo("A");
+		cuenta1.setTitular("Pepe Perez");
+		cuenta1.setSaldo(new BigDecimal(100));
+		this.bancariaService.insertar(cuenta1);
 		
-		this.pacienteTE.setCodigoIESS("ghksjf789");
-		this.pacienteTE.setCedula("1234567");
-		this.pacienteTE.setNombre("Edison");
-		this.pacienteTE.setTipo("TE");
-		
-		this.cancerSB.setCedula("09876543");
-		this.cancerSB.setNombre("Daniel");
-		this.cancerSB.setTipo("C");
-		
-		this.medicoSB.setCedula("12345");
-		this.medicoSB.setNombre("Diana");
-		
-		System.out.println("PacienteTe");
-		citaMedicaSB.agendar(cancerSB, "12",  LocalDateTime.of(2022,12,2,8,30), medicoSB);
-
+		CuentaBancaria cuenta2 = new CuentaBancaria();
+		cuenta2.setNumero("0002");
+		cuenta2.setTipo("A");
+		cuenta2.setTitular("Diana Teran");
+		cuenta2.setSaldo(new BigDecimal(200));
+		this.bancariaService.insertar(cuenta2);
 	}
 
 }

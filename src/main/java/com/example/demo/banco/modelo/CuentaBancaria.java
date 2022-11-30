@@ -10,6 +10,13 @@ public class CuentaBancaria {
 	private String titular;		
 	
 	
+	
+	@Override
+	public String toString() {
+		return "CuentaBancaria [numero=" + numero + ", tipo=" + tipo + ", saldo=" + saldo + ", titular=" + titular
+				+ "]";
+	}
+	
 	public String getNumero() {
 		return numero;
 	}
