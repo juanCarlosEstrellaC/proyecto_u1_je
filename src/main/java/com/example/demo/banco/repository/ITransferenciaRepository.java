@@ -7,7 +7,7 @@ public interface ITransferenciaRepository {
 	public List<Transferencia> buscarTodo();  // Método que devuelve una lista de Transferencias.
 	
 	//Mio:
-	public List<Transferencia> buscarTodo(String numeroCuenta);
+	//public List<Transferencia> buscarTodo(String numeroCuenta);
 	
 	//C R U D sin implementar:
 	public Transferencia buscar(Integer id);

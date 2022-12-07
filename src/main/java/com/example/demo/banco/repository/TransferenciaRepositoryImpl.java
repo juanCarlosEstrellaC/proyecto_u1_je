@@ -40,33 +40,32 @@ public class TransferenciaRepositoryImpl implements ITransferenciaRepository {
 	
 	@Override
 	public List<Transferencia> buscarTodo() {
-		
-		return null;
+		return baseDatos;
 	}
 	
 	
 	//MIo
 	// Si se desea obtener todas las transferencias de una cuenta origen, dada un número de cuenta.
-	@Autowired
-	private ICuentaBancariaRepository bancariaRepository;
-	
-	public List<Transferencia> buscarTodo(String numeroCuenta) {
-		CuentaBancaria cuenta = bancariaRepository.buscarPorNumero(numeroCuenta);
-		List<Transferencia> transferList = new ArrayList<>();
-		if(baseDatos.size() == 0) {
-			System.out.println("No hay transferencias aún.");
-		}else{
-			for(Transferencia t: baseDatos) {  			
-				System.out.println("Las Transferencias son: ");
-				if(t.getCuentaOrigen().equals(cuenta.getTitular())) {       
-					System.out.println(t.getNumero());
-					transferList.add(t);
-				}else{
-					System.out.println("No hay transferencias hechas");
-				}
-			}
-		}
-		return transferList;
-	}
+//	@Autowired
+//	private ICuentaBancariaRepository bancariaRepository;
+//	
+//	public List<Transferencia> buscarTodo(String numeroCuenta) {
+//		CuentaBancaria cuenta = bancariaRepository.buscarPorNumero(numeroCuenta);
+//		List<Transferencia> transferList = new ArrayList<>();
+//		if(baseDatos.size() == 0) {
+//			System.out.println("No hay transferencias aún.");
+//		}else{
+//			for(Transferencia t: baseDatos) {  			
+//				System.out.println("Las Transferencias son: ");
+//				if(t.getCuentaOrigen().equals(cuenta.getTitular())) {       
+//					System.out.println(t.getNumero());
+//					transferList.add(t);
+//				}else{
+//					System.out.println("No hay transferencias hechas");
+//				}
+//			}
+//		}
+//		return transferList;
+	//}
 
 }

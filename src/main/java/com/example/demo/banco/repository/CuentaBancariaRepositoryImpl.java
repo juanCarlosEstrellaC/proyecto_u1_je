@@ -34,7 +34,18 @@ public class CuentaBancariaRepositoryImpl implements ICuentaBancariaRepository {
 	}
 
 	@Override
-	public void actualizar(CuentaBancaria cuentaBancaria) {
+	public void actualizar(CuentaBancaria cuentaBancaria) {		
+		
+		CuentaBancaria cuenta = null;
+
+		for(CuentaBancaria cb: baseCuentas) {  						  // Para cada elemento en baseCuentas, hacer:
+			if(cb.getNumero().equals(cuentaBancaria.getNumero())) {   // Si ese elemento es igual al número de cuenta pasado, cuenta se inicializa con el elemento.
+				//baseCuentas.add(cuentaBancaria);
+				cuenta = cb;
+			}
+		}	
+		baseCuentas.remove(cuenta);
+		baseCuentas.add(cuentaBancaria);
 		System.out.println("Se actualiza la cuenta "+cuentaBancaria);
 	}
 

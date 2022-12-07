@@ -11,6 +11,15 @@ public class Transferencia {
 	private LocalDateTime fecha;
 	private String numero;		// Hack para GET y Set: Alt + Shift + (S y R presionados al mismo tiempo)
 	
+	
+
+	@Override
+	public String toString() {
+		return "Transferencia [cuentaOrigen=" + cuentaOrigen + ", cuentaDestino=" + cuentaDestino + ", monto=" + monto
+				+ ", fecha=" + fecha + ", numero=" + numero + "]";
+	}
+	
+	
 		public String getCuentaOrigen() {
 			return cuentaOrigen;
 		}

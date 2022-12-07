@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.banco.modelo.CuentaBancaria;
+import com.example.demo.banco.modelo.Transferencia;
 import com.example.demo.banco.service.ICuentaBancariaService;
 import com.example.demo.banco.service.ITransferenciaService;
 import com.example.demo.springBoot.CitaMedicaSB;
@@ -22,6 +23,9 @@ public class ProyectoU1DcApplication implements CommandLineRunner {
 	private ICuentaBancariaService bancariaService;
 	
 	//Mio:
+//	@Autowired
+//	private ITransferenciaService iTransferenciaService;
+	
 	@Autowired
 	private ITransferenciaService iTransferenciaService;
 	
@@ -47,9 +51,21 @@ public class ProyectoU1DcApplication implements CommandLineRunner {
 		cuenta2.setSaldo(new BigDecimal(200));
 		this.bancariaService.insertar(cuenta2);
 		
+		System.out.println("reporte 1");
+		for (Transferencia t: this.iTransferenciaService.buscarReporte()) {
+			System.out.println(t);
+		}
+		
+		this.iTransferenciaService.realizar("0001", "0002", new BigDecimal(10));
+		
+		System.out.println("reporte 2");
+		for (Transferencia t: this.iTransferenciaService.buscarReporte()) {
+			System.out.println(t);
+		}
+		
 		//MIO:
-		System.out.println("mio");
-		this.iTransferenciaService.buscarReporte(cuenta1.getNumero());
+//		System.out.println("mio");
+//		this.iTransferenciaService.buscarReporte(cuenta1.getNumero());
 	}
 
 }
