@@ -63,6 +63,14 @@ public class ProyectoU1DcApplication implements CommandLineRunner {
 			System.out.println(t);
 		}
 		
+		System.out.println("Saldos nuevos: ");
+
+		CuentaBancaria cuentaConsultada1 = this.bancariaService.buscarPorNumero("0001");
+		CuentaBancaria cuentaConsultada2 = this.bancariaService.buscarPorNumero("0002");
+
+		System.out.println("Nuevo saldo: " + cuentaConsultada1.getSaldo());
+		System.out.println("Nuevo saldo: " + cuentaConsultada2.getSaldo());
+		
 		//MIO:
 //		System.out.println("mio");
 //		this.iTransferenciaService.buscarReporte(cuenta1.getNumero());
