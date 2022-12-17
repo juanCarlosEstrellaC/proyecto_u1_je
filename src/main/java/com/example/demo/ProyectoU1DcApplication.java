@@ -10,6 +10,11 @@ import com.example.demo.banco.modelo.CuentaBancaria;
 import com.example.demo.banco.modelo.Transferencia;
 import com.example.demo.banco.service.ICuentaBancariaService;
 import com.example.demo.banco.service.ITransferenciaService;
+import com.example.demo.ejercicio1.modelo.Propietario;
+import com.example.demo.ejercicio1.modelo.Vehiculo;
+import com.example.demo.ejercicio1.service.IMatriculaService;
+import com.example.demo.ejercicio1.service.IPropietarioService;
+import com.example.demo.ejercicio1.service.IVehiculoService;
 import com.example.demo.springBoot.CitaMedicaSB;
 import com.example.demo.springBoot.MedicoSB;
 import com.example.demo.springBoot.PacienteCancerSB;
@@ -20,15 +25,13 @@ import com.example.demo.springBoot.PacienteTerceraEdadSB;
 public class ProyectoU1DcApplication implements CommandLineRunner {
 
 	@Autowired
-	private ICuentaBancariaService bancariaService;
-	
-	//Mio:
-//	@Autowired
-//	private ITransferenciaService iTransferenciaService;
+	private IVehiculoService iVehiculoService;
 	
 	@Autowired
-	private ITransferenciaService iTransferenciaService;
+	private IPropietarioService iPropietarioService;
 	
+	@Autowired
+	private IMatriculaService iMatriculaService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1DcApplication.class, args);
@@ -37,43 +40,34 @@ public class ProyectoU1DcApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		CuentaBancaria cuenta1 = new CuentaBancaria();
-		cuenta1.setNumero("0001");
-		cuenta1.setTipo("A");
-		cuenta1.setTitular("Pepe Perez");
-		cuenta1.setSaldo(new BigDecimal(100));
-		this.bancariaService.insertar(cuenta1);
+		// opcion 1
+		Vehiculo vehi = new Vehiculo();
+		vehi.setMarca("Toyota");
+		vehi.setPlaca("POI34564");
+		vehi.setPrecio(new BigDecimal(20000));
+		vehi.setTipo("P");
 		
-		CuentaBancaria cuenta2 = new CuentaBancaria();
-		cuenta2.setNumero("0002");
-		cuenta2.setTipo("A");
-		cuenta2.setTitular("Diana Teran");
-		cuenta2.setSaldo(new BigDecimal(200));
-		this.bancariaService.insertar(cuenta2);
+		this.iVehiculoService.crear(vehi);
 		
-		System.out.println("reporte 1");
-		for (Transferencia t: this.iTransferenciaService.buscarReporte()) {
-			System.out.println(t);
-		}
 		
-		this.iTransferenciaService.realizar("0001", "0002", new BigDecimal(10));
+		vehi.setPrecio(new BigDecimal(10000));
+		vehi.setMarca("Tadsyota");
 		
-		System.out.println("reporte 2");
-		for (Transferencia t: this.iTransferenciaService.buscarReporte()) {
-			System.out.println(t);
-		}
+		this.iVehiculoService.modificar(vehi);
 		
-		System.out.println("Saldos nuevos: ");
+		//Opción 2
+		Propietario propietario = new Propietario();
+		propietario.setNombre("Jose");
+		propietario.setApellido("Cardenas");
+		propietario.setFechaNacimiento(LocalDateTime.of(1985, 7,7,12,35));
+		propietario.setCedula("184965486");
+		
+		this.iPropietarioService.guardar(propietario);
+		
+		
+		//Opcion 3:
+		this.iMatriculaService.matricular("184965486", "POI34564");
 
-		CuentaBancaria cuentaConsultada1 = this.bancariaService.buscarPorNumero("0001");
-		CuentaBancaria cuentaConsultada2 = this.bancariaService.buscarPorNumero("0002");
-
-		System.out.println("Nuevo saldo: " + cuentaConsultada1.getSaldo());
-		System.out.println("Nuevo saldo: " + cuentaConsultada2.getSaldo());
-		
-		//MIO:
-//		System.out.println("mio");
-//		this.iTransferenciaService.buscarReporte(cuenta1.getNumero());
 	}
 
 }
