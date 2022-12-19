@@ -3,28 +3,28 @@ package com.example.demo.medica.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.medica.modelo.Medico;
-import com.example.demo.medica.repository.IMedicoRepository;
+import com.example.demo.medica.modelo.Doctor;
+import com.example.demo.medica.repository.IDoctorRepository;
 
 @Service
-public class MedicoServiceImpl implements IMedicoService {
+public class DoctorServiceImpl implements IDoctorService {
 
 	@Autowired
-	private IMedicoRepository iMedicoRepository;
+	private IDoctorRepository iMedicoRepository;
 	
 	
 	@Override
-	public Medico buscar(String cedula) {
+	public Doctor buscar(String cedula) {
 		return this.iMedicoRepository.buscar(cedula);
 	}
 
 	@Override
-	public void crear(Medico medico) {
+	public void crear(Doctor medico) {
 		this.iMedicoRepository.insertar(medico);
 	}
 
 	@Override
-	public void modificar(Medico medico) {
+	public void modificar(Doctor medico) {
 		this.iMedicoRepository.actualizar(medico);
 	}
 

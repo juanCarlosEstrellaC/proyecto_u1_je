@@ -3,7 +3,7 @@ package com.example.demo.medica.modelo;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class Medico {
+public class Doctor {
 	
 	private String nombre;
 	private String apellido;
@@ -15,7 +15,7 @@ public class Medico {
 
 	@Override
 	public String toString() {
-		return "Medico [nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", fechaNacimiento="
+		return "Doctor [nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", fechaNacimiento="
 				+ fechaNacimiento + ", especialidad=" + especialidad + ", precioConsulta=" + precioConsulta + "]";
 	}
 

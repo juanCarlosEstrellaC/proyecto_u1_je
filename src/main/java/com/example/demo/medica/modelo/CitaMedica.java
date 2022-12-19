@@ -8,13 +8,13 @@ public class CitaMedica {
 	private LocalDateTime fecha;
 	private BigDecimal precio;
 	private Paciente paciente;
-	private Medico medico;
+	private Doctor doctor;
 	
 
 	
 	@Override
 	public String toString() {
-		return "CitaMedica [fecha=" + fecha + ", precio=" + precio + ", paciente=" + paciente + ", medico=" + medico
+		return "CitaMedica [fecha=" + fecha + ", precio=" + precio + ", paciente=" + paciente + ", medico=" + doctor
 				+ "]";
 	}
 	//GET Y SET
@@ -57,14 +57,14 @@ public class CitaMedica {
 
 
 
-	public Medico getMedico() {
-		return medico;
+	public Doctor getMedico() {
+		return doctor;
 	}
 
 
 
-	public void setMedico(Medico medico) {
-		this.medico = medico;
+	public void setMedico(Doctor medico) {
+		this.doctor = medico;
 	}
 	
 	

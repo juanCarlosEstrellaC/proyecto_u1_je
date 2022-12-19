@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.medica.modelo.CitaMedica;
-import com.example.demo.medica.modelo.Medico;
+import com.example.demo.medica.modelo.Doctor;
 import com.example.demo.medica.modelo.Paciente;
 import com.example.demo.medica.repository.ICitaMedicaRepository;
-import com.example.demo.medica.repository.IMedicoRepository;
+import com.example.demo.medica.repository.IDoctorRepository;
 import com.example.demo.medica.repository.IPacienteRepository;
 
 @Service
@@ -23,17 +23,17 @@ public class CitaMedicaServiceImpl implements ICitaMedicaService{
 	private IPacienteRepository iPacienteRepository;
 	
 	@Autowired
-	private IMedicoRepository iMedicoRepository;
+	private IDoctorRepository iDoctorRepository;
 	
 	@Override
-	public void agendar(String cedulaPacinte, String cedulaMedico) {
+	public void agendar(String cedulaPacinte, String cedulaMedico, LocalDateTime fecha) {
 		
 		
 		CitaMedica citaMed = new CitaMedica();
-		citaMed.setFecha(LocalDateTime.now());
+		citaMed.setFecha(fecha);
 		Paciente paci = this.iPacienteRepository.buscar(cedulaPacinte);
 		citaMed.setPaciente(paci);
-		Medico medi = this.iMedicoRepository.buscar(cedulaMedico);
+		Doctor medi = this.iDoctorRepository.buscar(cedulaMedico);
 		citaMed.setMedico(medi);
 		
 		BigDecimal valor = null;
