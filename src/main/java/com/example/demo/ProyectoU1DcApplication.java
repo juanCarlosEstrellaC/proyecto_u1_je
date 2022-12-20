@@ -1,25 +1,18 @@
 package com.example.demo;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.banco.modelo.CuentaBancaria;
-import com.example.demo.banco.modelo.Transferencia;
-import com.example.demo.banco.service.ICuentaBancariaService;
-import com.example.demo.banco.service.ITransferenciaService;
 import com.example.demo.ejercicio1.modelo.Propietario;
 import com.example.demo.ejercicio1.modelo.Vehiculo;
-import com.example.demo.ejercicio1.service.IMatriculaService;
+import com.example.demo.ejercicio1.service.IMatriculaNuevaService;
 import com.example.demo.ejercicio1.service.IPropietarioService;
 import com.example.demo.ejercicio1.service.IVehiculoService;
-import com.example.demo.springBoot.CitaMedicaSB;
-import com.example.demo.springBoot.MedicoSB;
-import com.example.demo.springBoot.PacienteCancerSB;
-import com.example.demo.springBoot.PacienteSB;
-import com.example.demo.springBoot.PacienteTerceraEdadSB;
 
 @SpringBootApplication
 public class ProyectoU1DcApplication implements CommandLineRunner {
@@ -30,8 +23,7 @@ public class ProyectoU1DcApplication implements CommandLineRunner {
 	@Autowired
 	private IPropietarioService iPropietarioService;
 	
-	@Autowired
-	private IMatriculaService iMatriculaService;
+	
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1DcApplication.class, args);
@@ -65,8 +57,8 @@ public class ProyectoU1DcApplication implements CommandLineRunner {
 		this.iPropietarioService.guardar(propietario);
 		
 		
+		
 		//Opcion 3:
-		this.iMatriculaService.matricular("184965486", "POI34564");
 
 	}
 
