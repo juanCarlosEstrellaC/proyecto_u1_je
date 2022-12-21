@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.ejercicio1.modelo.Propietario;
 import com.example.demo.ejercicio1.modelo.Vehiculo;
+import com.example.demo.ejercicio1.service.IGestorMatriculaService;
 import com.example.demo.ejercicio1.service.IMatriculaNuevaService;
 import com.example.demo.ejercicio1.service.IPropietarioService;
 import com.example.demo.ejercicio1.service.IVehiculoService;
@@ -23,42 +24,56 @@ public class ProyectoU1DcApplication implements CommandLineRunner {
 	@Autowired
 	private IPropietarioService iPropietarioService;
 	
+	@Autowired
+	private IGestorMatriculaService gestorMatriculaService;
 	
+	
+	@Autowired
+	@Qualifier("pesado")
+	private IMatriculaNuevaService iMatriculaService;
+	
+	
+	@Autowired
+	@Qualifier("liviano")
+	private IMatriculaNuevaService iMatriculaServiceLiviano;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1DcApplication.class, args);
+	
+	
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("SPRING BOOT");
 		
-		// opcion 1
+		//Opcion 1
 		Vehiculo vehi = new Vehiculo();
-		vehi.setMarca("Toyota");
-		vehi.setPlaca("POI34564");
+		vehi.setMarca("Toyta");
+		vehi.setPlaca("PDF12654");
 		vehi.setPrecio(new BigDecimal(20000));
-		vehi.setTipo("P");
-		
+		vehi.setTipo("L");
 		this.iVehiculoService.crear(vehi);
-		
-		
+		//Es una opcion
 		vehi.setPrecio(new BigDecimal(10000));
-		vehi.setMarca("Tadsyota");
-		
+		vehi.setMarca("Toyota");
 		this.iVehiculoService.modificar(vehi);
 		
-		//Opción 2
+		//Opcion 2
+		
+		
 		Propietario propietario = new Propietario();
-		propietario.setNombre("Jose");
-		propietario.setApellido("Cardenas");
-		propietario.setFechaNacimiento(LocalDateTime.of(1985, 7,7,12,35));
-		propietario.setCedula("184965486");
-		
-		this.iPropietarioService.guardar(propietario);
-		
-		
-		
-		//Opcion 3:
+		propietario.setApellido("Colon");
+		propietario.setCedula("154774566");
+		propietario.setFechaNacimiento(LocalDateTime.of(1978, 8,31,12,35));
+		propietario.setNombre("Edison");
+		 this.iPropietarioService.guardar(propietario);
+		 
+		 
+		 //Logica de negocio no puede estar aqui
+	
+		this.gestorMatriculaService.matricular("154774566", "PDF12654");
 
 	}
 
