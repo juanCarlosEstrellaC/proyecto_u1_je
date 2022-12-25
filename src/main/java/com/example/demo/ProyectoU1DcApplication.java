@@ -17,7 +17,9 @@ import com.example.demo.ejercicio1.service.IVehiculoService;
 
 @SpringBootApplication
 public class ProyectoU1DcApplication implements CommandLineRunner {
-
+	
+	//pj
+	
 	@Autowired
 	private IVehiculoService iVehiculoService;
 	
