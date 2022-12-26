@@ -14,7 +14,7 @@ import com.example.demo.ejercicio1.service.IPropietarioService;
 import com.example.demo.ejercicio1.service.IVehiculoService;
 
 @SpringBootApplication
-public class ProyectoU1DcApplication implements CommandLineRunner {
+public class ProyectoU1JeApplication implements CommandLineRunner {
 		
 	@Autowired
 	private IVehiculoService iVehiculoService;
@@ -27,7 +27,7 @@ public class ProyectoU1DcApplication implements CommandLineRunner {
 	
 	
 	public static void main(String[] args) {
-		SpringApplication.run(ProyectoU1DcApplication.class, args);
+		SpringApplication.run(ProyectoU1JeApplication.class, args);
 	}
 
 	
