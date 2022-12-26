@@ -1,5 +1,4 @@
 package com.example.demo.ejercicio1.service;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -13,19 +12,18 @@ import com.example.demo.ejercicio1.modelo.Vehiculo;
 import com.example.demo.ejercicio1.repository.IMatriculaRepository;
 import com.example.demo.ejercicio1.repository.IPropietarioRepository;
 import com.example.demo.ejercicio1.repository.IVehiculoRepository;
-import com.example.demo.tienda.repository.IProductoRepository;
 
 @Service
 public class GestorMatriculaServiceImpl implements IGestorMatriculaService {
 
 	@Autowired
 	@Qualifier("pesado")
-	private IMatriculaNuevaService iMatriculaService;
-	
+	private IMatriculaNuevaService iMatriculaServicePesado;
 	
 	@Autowired
 	@Qualifier("liviano")
 	private IMatriculaNuevaService iMatriculaServiceLiviano;
+	
 	
 	@Autowired
 	private IVehiculoRepository iVehiculoRepository;
@@ -38,7 +36,6 @@ public class GestorMatriculaServiceImpl implements IGestorMatriculaService {
 	
 	@Override
 	public void matricular(String cedula, String placa) {
-		// TODO Auto-generated method stub
 		
 		Matricula matricula = new Matricula();
 		matricula.setFecha(LocalDateTime.now());
@@ -47,21 +44,16 @@ public class GestorMatriculaServiceImpl implements IGestorMatriculaService {
 		matricula.setPropietario(pro);
 		matricula.setVehiculo(vehi);
 		
-	
-		
-		
-		 //Propietario propietario = this.iPropietarioRepository.buscar(cedula);
-		 BigDecimal valor = null;
-		
-		 
-		 if(vehi.getTipo().equals("P")) {
-			 valor=this.iMatriculaService.matricular(vehi.getPrecio());
-		     System.out.println("Su vehiculo es pesado");
-		 }else {
-		
-			 valor = this.iMatriculaServiceLiviano.matricular(vehi.getPrecio());
-             System.out.println("Su vehiculo es Liviano");
+		BigDecimal valor = null;
+		if (vehi.getTipo().equals("P")) {
+			valor = this.iMatriculaServicePesado.matricular(vehi.getPrecio());  //esto es lo nuevo
+			System.out.println("Su vehiculo es pesado");
+		} else {
+
+			valor = this.iMatriculaServiceLiviano.matricular(vehi.getPrecio()); //esto es lo nuevo
+			System.out.println("Su vehiculo es Liviano");
 		}
+		
 		//Programo descuento
 		if(valor.compareTo(new BigDecimal(2000))>1) {
 			BigDecimal descuento= valor.multiply(new BigDecimal(7));
@@ -69,11 +61,11 @@ public class GestorMatriculaServiceImpl implements IGestorMatriculaService {
 			valor = valor.subtract(descuento);
 			
 		}
-	    matricula.setValor(valor);
-	   this.iMatriculaRepository.insertar(matricula);
-	   System.out.println("Se matriculo el vehiculo " + matricula);
-	   System.out.println("El valor fue: " + valor);
-	   
+		matricula.setValor(valor);
+		this.iMatriculaRepository.insertar(matricula);
+		System.out.println("Se matriculo el vehiculo " + matricula);
+		System.out.println("El valor fue: " + valor);
+
 	}
 
 }
