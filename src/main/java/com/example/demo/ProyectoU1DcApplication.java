@@ -61,7 +61,6 @@ public class ProyectoU1DcApplication implements CommandLineRunner {
 		
 		
 		//Opcion 3:
-		
 		BigDecimal valor = this.iGestorMatriculaService.matricular(propietario.getCedula(), vehi.getPlaca());
 		LOG.info("El valor de la matricula es: "+valor);
 		System.out.println("hola");

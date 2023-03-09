@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public interface IMatriculaNuevaService {
 
-	public BigDecimal matricular(String cedula, String placa);
+	public BigDecimal calculoSubtotal(BigDecimal precio);
 
 	
 }

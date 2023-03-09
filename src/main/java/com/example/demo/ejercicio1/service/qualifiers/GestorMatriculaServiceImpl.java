@@ -46,9 +46,9 @@ public class GestorMatriculaServiceImpl implements IGestorMatriculaService {
 		BigDecimal valor = null;
 
 		if (vehiculo.getTipo().equals("P")) {
-			valor = this.iMatriculaNuevaServicePesado.matricular(cedula, placa);
+			valor = this.iMatriculaNuevaServicePesado.calculoSubtotal(vehiculo.getPrecio());
 		} else {
-			valor = this.iMatriculaNuevaServiceLiviano.matricular(cedula, placa);
+			valor = this.iMatriculaNuevaServiceLiviano.calculoSubtotal(vehiculo.getPrecio());
 		}
 
 		// Programo descuento
