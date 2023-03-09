@@ -1,4 +1,4 @@
-package com.example.demo.ejercicio1.service;
+package com.example.demo.ejercicio1.service.qualifiers;
 
 public interface IGestorMatriculaService {
 

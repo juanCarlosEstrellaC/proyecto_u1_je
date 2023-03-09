@@ -1,4 +1,4 @@
-package com.example.demo.ejercicio1.service;
+package com.example.demo.ejercicio1.service.qualifiers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
