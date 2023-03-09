@@ -1,14 +1,24 @@
 package com.example.demo.ejercicio1.service.qualifiers;
 
+import java.math.BigDecimal;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.ejercicio1.modelo.Vehiculo;
+import com.example.demo.ejercicio1.repository.IVehiculoRepository;
+
 @Service("liviano")
-public class MatriculaNuevaLivianoServiceImpl implements IMatriculaNuevaService{
+public class MatriculaNuevaLivianoServiceImpl implements IMatriculaNuevaService {
+
+	@Autowired
+	private IVehiculoRepository iVehiculoRepository;
 
 	@Override
-	public void matricular(String cedula, String placa) {
-		System.out.println("Matriculado Liviano");
-		System.out.println("Calculo del descuento de 2000.");
+	public BigDecimal matricular(String cedula, String placa) {
+		Vehiculo vehiculo = this.iVehiculoRepository.buscar(placa);
+		BigDecimal valor = vehiculo.getPrecio().multiply(new BigDecimal(0.10));
+		return valor;
 	}
 
 }
